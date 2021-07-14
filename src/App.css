@@ -1,0 +1,63 @@
+body {
+  background: url(https://image.freepik.com/free-vector/white-abstract-background-design_23-2148825582.jpg);
+}
+.App-title-appear {
+  transform: translateX(-100%);
+}
+
+.App-title-appear-active {
+  transform: translateX(0);
+  transition: transform 250ms linear;
+}
+
+.container {
+  padding: 40px 20px;
+  display: flex;
+}
+
+.app-section {
+  width: calc(100% / 3.5);
+  min-width: 300px;
+  padding: 20px 20px;
+  background-image: radial-gradient(#226a8d, #1f285c);
+
+  -webkit-box-shadow: 1px 3px 17px 1px rgba(0,0,0,0.67); 
+box-shadow: 1px 3px 17px 1px rgba(0,0,0,0.67);
+  overflow: hidden;
+}
+.app-section:not(:last-child) {
+  margin-right: 40px;
+}
+
+.app-title {
+  margin-bottom: 15px;
+  color: #e8c899
+}
+
+.app-title.top-margin{
+  margin-top: 15px
+}
+/* ANIMATION STYLES */
+.container-fade-appear {
+  transform: scale(0.1);
+  opacity: 0;
+  transform-origin: top left;
+}
+
+.container-fade-appear-active {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 250ms linear;
+}
+
+.container-next-fade-appear {
+  transform: scale(0.1);
+  opacity: 0;
+  transform-origin: top left;
+}
+
+.container-next-fade-appear-active {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 250ms linear 250ms;
+}

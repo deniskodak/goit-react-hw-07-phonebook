@@ -1,0 +1,49 @@
+/* .enter {
+  transform: scale(0);
+  background-color: rgb(129, 221, 129);
+}
+
+.enterActive {
+  transform: scale(1);
+  background-color: transparent;
+  transition: transform 250ms ease-in-out;
+  transition: background-color 250ms linear;
+} */
+
+/* .exit {
+  transform: scale(1);
+  background-color: transparent;
+} */
+/* 
+.exitActive {
+  transform: scale(0);
+  background-color: rgb(208, 91, 76);
+  transition: transform 250ms ease-in-out;
+} */
+.enter {
+  opacity: 0;
+  transform: translateX(-100%);
+  background-color: rgb(129, 221, 129);
+}
+
+.enterActive {
+  opacity: 1;
+  background-color: transparent;
+  transform: translateX(0);
+  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out,
+    background-color 250ms linear;
+}
+
+.exit {
+  opacity: 1;
+  transform: translateX(0);
+  background-color: transparent;
+}
+
+.exitActive {
+  opacity: 0;
+  transform: translateX(-100%);
+  background-color: rgb(208, 91, 76);
+  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out,
+    background-color 150ms ease-in-out;
+}
