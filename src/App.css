@@ -16,6 +16,7 @@ body {
 }
 
 .app-section {
+  position: relative;
   width: calc(100% / 3.5);
   min-width: 300px;
   padding: 20px 20px;

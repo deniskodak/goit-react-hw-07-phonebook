@@ -1,3 +1,13 @@
 .list {
   padding: 0 30px;
 }
+
+.loader {
+  position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.error {
+  color: rgba(230, 17, 17, 0.673);
+}

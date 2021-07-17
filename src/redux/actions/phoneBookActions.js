@@ -1,20 +1,21 @@
-import { v4 as uuidv4 } from "uuid";
-import { createAction } from "@reduxjs/toolkit";
+import { createAction } from '@reduxjs/toolkit';
 
-const addContact = createAction("phonebook/addContact", addContactPrepareFn);
+export const getContactsRequest = createAction('phonebook/getContactsRequest');
+export const getContactsSuccess = createAction('phonebook/getContactsSuccess');
+export const getContactsError = createAction('phonebook/getContactsError');
 
-const deleteContact = createAction("phonebook/deleteContact");
+export const addContactsRequest = createAction('phonebook/addContactsRequest');
+export const addContactsSuccess = createAction('phonebook/addContactsSuccess');
+export const addContactsError = createAction('phonebook/addContactsError');
 
-const filterContacts = createAction("phonebook/filterContacts");
+export const deleteContactsRequest = createAction(
+  'phonebook/deleteContactsRequest',
+);
+export const deleteContactsSuccess = createAction(
+  'phonebook/deleteContactsSuccess',
+);
+export const deleteContactsError = createAction(
+  'phonebook/deleteContactsError',
+);
 
-function addContactPrepareFn(name, phoneNum) {
-  return {
-    payload: {
-      id: uuidv4(),
-      name,
-      phoneNum,
-    },
-  };
-}
-
-export { addContact, deleteContact, filterContacts };
+export const filterContacts = createAction('phonebook/filterContacts');

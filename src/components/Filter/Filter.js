@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styles from "./Filter.module.css";
-import { Component } from "react";
-import { connect } from "react-redux";
-import { filterContacts } from "../../redux/actions/phoneBookActions";
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import styles from './Filter.module.css';
+
+import { Component } from 'react';
 
 class Filter extends Component {
   state = {
-    filter: "",
+    filter: '',
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     const name = e.target.name;
 
     this.props.filterContacts(e.target.value);
@@ -23,16 +23,16 @@ class Filter extends Component {
   componentDidUpdate() {}
 
   render() {
-    const { value } = this.state;
+    const { filter } = this.state;
     return (
       <label className={styles.label}>
-        {" "}
+        {' '}
         Find contacts by name
         <input
           className={styles.input}
           type="text"
           name="filter"
-          value={value}
+          value={filter}
           autoComplete="off"
           onChange={this.handleChange}
         />
@@ -40,15 +40,8 @@ class Filter extends Component {
     );
   }
 }
-const mapStateToProps = ({ filter }, props) => ({
-  filter,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  filterContacts: (text) => dispatch(filterContacts(text)),
-});
 
 Filter.propTypes = {
   filterContacts: PropTypes.func.isRequired,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default Filter;

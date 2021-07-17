@@ -1,14 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styles from "./Contact.module.css";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Contact = ({ contact, onDelete }) => {
-  const { name, phoneNum } = contact;
+import styles from './Contact.module.css';
 
+const Contact = ({ OnDelete, contact: { name, phone, id } }) => {
   return (
     <li className={styles.item}>
-      {name}: {phoneNum}
-      <button className={styles.button} type="button" onClick={onDelete}>
+      {name}: {phone}
+      <button
+        className={styles.button}
+        type="button"
+        onClick={() => OnDelete(id)}
+      >
         X
       </button>
     </li>
@@ -18,9 +21,9 @@ const Contact = ({ contact, onDelete }) => {
 Contact.propTypes = {
   contact: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    phoneNum: PropTypes.string.isRequired,
+    phone: PropTypes.number.isRequired,
   }),
-  onDelete: PropTypes.func.isRequired,
+  OnDelete: PropTypes.func.isRequired,
 };
 
 export default Contact;

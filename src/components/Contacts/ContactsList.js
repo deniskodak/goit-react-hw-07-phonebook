@@ -1,51 +1,52 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Contact from "../Contact";
-import styles from "./ContactsList.module.css";
-import contactAnimation from "./animation/contact.module.css";
+import Loader from 'react-loader-spinner';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { deleteContact } from "../../redux/actions/phoneBookActions";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import Contact from '../Contact';
+import contactAnimation from './animation/contact.module.css';
 
-const ContactList = ({ contacts, deleteContact }) => (
-  <TransitionGroup component="ul" className={styles.list}>
-    {contacts.map((contact) => {
-      const { id } = contact;
-      return (
-        <CSSTransition key={id} timeout={250} classNames={contactAnimation}>
-          <Contact
-            key={id}
-            contact={contact}
-            onDelete={() => deleteContact(id)}
-          />
-        </CSSTransition>
-      );
-    })}
-  </TransitionGroup>
+import styles from './ContactsList.module.css';
+
+const ContactList = ({ contacts, isLoading, isError }) => (
+  <>
+    {isLoading && (
+      <Loader
+        className={styles.loader}
+        type="Puff"
+        color="#e8c899"
+        height={30}
+        width={30}
+      />
+    )}
+
+    {isError && <h2 className={styles.error}>{isError}</h2>}
+
+    <TransitionGroup component="ul" className={styles.list}>
+      {contacts.map(contact => {
+        const { id } = contact;
+        return (
+          <CSSTransition key={id} timeout={250} classNames={contactAnimation}>
+            <Contact key={id} contact={contact} />
+          </CSSTransition>
+        );
+      })}
+    </TransitionGroup>
+  </>
 );
 
+ContactList.defaultProps = {
+  isError: null,
+};
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
-  deleteContact: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isError: PropTypes.object,
 };
 
-const getFilteredList = (contacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
-  return contacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter)
-  );
-};
-
-const mapStateToProps = ({ contacts: { items, filter } }, props) => ({
-  contacts: getFilteredList(items, filter),
-});
-const mapDispatchToProps = (dispatch) => ({
-  deleteContact: (id) => dispatch(deleteContact(id)),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default ContactList;

@@ -16,9 +16,6 @@
   border-radius: 8%;
   outline: none;
 }
-/* .input:focus {
-  border-color: rgb(146 153 191);
-} */
 
 .label {
   display: flex;
@@ -33,6 +30,11 @@
 }
 .label:focus-within {
   color: rgb(146 153 191);
+}
+
+.controlls {
+  display: flex;
+flex-direction: column;
 }
 .button {
   margin-left: auto;
@@ -49,6 +51,10 @@
   outline: none;
 
   transition: transform 300ms linear;
+}
+
+.button:not(:last-child) {
+  margin-bottom: 15px;
 }
 .button:focus,
 .button:hover {
