@@ -1,36 +1,6 @@
 {
   "contacts": [
     {
-      "name": "Aden Ebner",
-      "phone": 67861875,
-      "id": "5hCRP2u"
-    },
-    {
-      "name": "Cahl Miller",
-      "phone": 15006096,
-      "id": "qlxd2Lo"
-    },
-    {
-      "name": "Daniyal Moody",
-      "phone": 11996324,
-      "id": "dJ6IMWq"
-    },
-    {
-      "name": "Corran Caswell",
-      "phone": 21007932,
-      "id": "tFoLF22"
-    },
-    {
-      "name": "Jad Zeaser",
-      "phone": 14597564,
-      "id": "Ph1cF5j"
-    },
-    {
-      "name": "Dylan-James Ashwoon",
-      "phone": 84950346,
-      "id": "ymX7_TD"
-    },
-    {
       "name": "Cody-Lee Yocum",
       "phone": 79797521,
       "id": "MB3t7jc"
@@ -39,6 +9,11 @@
       "name": "Ruben Davidson",
       "phone": 18215094,
       "id": "plWaUWv"
+    },
+    {
+      "name": "Darrell Jenson",
+      "phone": 75036244,
+      "id": "Dwup3XO"
     }
   ]
 }
